@@ -8,12 +8,13 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
-    <div class="login-container">
+  <div class="login-container">
     <img src="images/final logo.jpg" alt="BiteBuzz Logo" class="logo">
     <h1>Welcome Back!</h1>
     <h2 style="color: #ff9900; font-family: Arial, sans-serif;">Login to BiteBuzz</h2>
-    <form action="login.jpg" method="POST">
-        <div class="input-group">
+
+    <form id="login-form">
+      <div class="input-group">
         <i class="fa-solid fa-user"></i>
         <input type="text" id="username" name="username" placeholder="Enter Your Username" required>
       </div>
@@ -23,40 +24,43 @@
       </div>
       <button type="submit">Login</button>
     </form>
+
+    <p>Don't have an account? <a href="signup.html">Sign Up Here</a></p>
   </div>
+
   <script>
-    // JavaScript to handle form submission and validate credentials
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-  event.preventDefault(); // Prevent the default form submission
+    document.getElementById('login-form').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent default form submission
 
-  const username = document.getElementById('username').value.trim();
-  const password = document.getElementById('password').value.trim();
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
 
-  console.log('Entered Username:', username);
-  console.log('Entered Password:', password);
+      console.log("Entered Username:", username);
+      console.log("Entered Password:", password);
 
-  // Predefined list of valid credentials
-  const validUsers = [
-    { username: "admin", password: "Admin@123" },
-    { username: "user1", password: "User1@456" },
-    { username: "user2", password: "User2@789" }
-  ];
+      try {
+        const response = await fetch("http://localhost/bitebuzz/login.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        });
 
-  console.log('Valid Users:', validUsers);
+        const rawText = await response.text();
+        console.log("Raw Response:", rawText);
 
-  // Check if the entered credentials match any valid user
-  const isValidUser = validUsers.some(user => user.username === username && user.password === password);
+        const data = JSON.parse(rawText);
 
-  console.log('Is Valid User:', isValidUser);
-
-  if (isValidUser) {
-    // Redirect to the homepage if credentials are correct
-    window.location.href = 'homepage.html';
-  } else {
-    // Show an error message if credentials are incorrect
-    alert('Invalid username or password. Please try again.');
-  }
-});
+        if (data.success) {
+          alert("Login successful! Redirecting...");
+          window.location.href = data.redirect;
+        } else {
+          alert("Invalid username or password.");
+        }
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    });
   </script>
 </body>
 </html>
+
