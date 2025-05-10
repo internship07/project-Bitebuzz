@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - BiteBuzz</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+    <img src="images/final logo.jpg" alt="BiteBuzz Logo" class="logo">
+    <h1>Welcome Back!</h1>
+    <h2 style="color: #ff9900; font-family: Arial, sans-serif;">Login to BiteBuzz</h2>
+    <form action="login.jpg" method="POST">
+        <div class="input-group">
+        <i class="fa-solid fa-user"></i>
+        <input type="text" id="username" name="username" placeholder="Enter Your Username" required>
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" id="password" name="password" placeholder="Enter Your Password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  <script>
+    // JavaScript to handle form submission and validate credentials
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  console.log('Entered Username:', username);
+  console.log('Entered Password:', password);
+
+  // Predefined list of valid credentials
+  const validUsers = [
+    { username: "admin", password: "Admin@123" },
+    { username: "user1", password: "User1@456" },
+    { username: "user2", password: "User2@789" }
+  ];
+
+  console.log('Valid Users:', validUsers);
+
+  // Check if the entered credentials match any valid user
+  const isValidUser = validUsers.some(user => user.username === username && user.password === password);
+
+  console.log('Is Valid User:', isValidUser);
+
+  if (isValidUser) {
+    // Redirect to the homepage if credentials are correct
+    window.location.href = 'homepage.html';
+  } else {
+    // Show an error message if credentials are incorrect
+    alert('Invalid username or password. Please try again.');
+  }
+});
+  </script>
+</body>
+</html>
