@@ -1,0 +1,151 @@
+body {
+    background-image: url('images/food.jpg');
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .welcome-container {
+    
+    width: 90%; /* Use a percentage for flexible width */
+    max-width: 400px; /* Limit the maximum width for larger screens */
+    margin: 50px auto; /* Center the container */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+  }
+
+  .logo {
+    display: block;
+    margin: 0 auto; /* Center the logo and add spacing below */
+    max-width: 100%; /* Ensure the logo doesn't overflow the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Adjust the value for the desired roundness */
+    width: 250px; /* Set a specific width */
+  }
+  
+  h1 {
+    font-size: 2.1rem; /* Adjust heading size */
+    text-align: center;
+    color: #ff9900;
+  }
+
+  p {
+    font-size: 1.1rem; /* Ensure text is readable on smaller screens */
+    text-align: center;
+  } 
+
+  @media (max-width: 480px) {
+    .welcome-container {
+      padding: 15px; /* Reduce padding for smaller screens */
+      margin: 20px auto; /* Reduce margin for smaller screens */
+    }
+  
+    h1 {
+      font-size: 1.5rem; /* Smaller heading size */
+    }
+  
+    p {
+      font-size: 0.9rem; /* Adjust paragraph size */
+    }
+
+    input[type="text"], input[type="tel"] {
+      font-size: 1rem; /* Adjust input font size */
+  }
+
+  button[type="submit"] {
+      font-size: 1rem; /* Adjust button font size */
+      height: 35px; /* Reduce button height */
+  }
+
+  .skip-link {
+      font-size: 0.9rem; /* Adjust skip link font size */
+  }
+}
+
+  .input-group {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #f9f9f9;
+  }
+  
+  .input-group i {
+    margin-right: 10px;
+    color: #ff9900;
+  }
+  
+  input[type="text"], input[type="tel"] {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #f9f9f9;
+  }
+
+  input[type="text"], input[type="password"] {
+    width: 100%;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    background-color: #f9f9f9;
+  }
+
+  .skip-link {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+    color: #ff9900;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .skip-link:hover {
+    text-decoration: underline;
+  }
+  
+  button[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #ff9900;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #ffad33;
+    transform: scale(1.05);
+  }
+  
+  h1 {
+    color: #ff9900;
+  }
+
+  .login-container {
+    width: 90%; /* Use a percentage for flexible width */
+    max-width: 400px; /* Limit the maximum width for larger screens */
+    margin: 50px auto; /* Center the container */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the width calculation */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+  }
